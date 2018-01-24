@@ -1,0 +1,3 @@
+1. my screen structure is based off an arbitrary 9x9 matrix. and will allow the user to change the value of this structure depending on the input.
+2. to find a specific element just use the built in at method, to return the value at a specific spot in the array. the array also is transposed naturally due to the language, such that you read ordered pairs or the coordinates like (y,x) instead of the standard (x,y)
+3. this can be represented by thing with screen, table, graph, anything you could have a grid and fill cells of that grid with a value.

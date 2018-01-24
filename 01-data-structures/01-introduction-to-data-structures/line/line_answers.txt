@@ -1,0 +1,3 @@
+1. my data structure represents how a line works, new people join in the back people in front are first.
+2. you can search for elements via the index, or search method. the search just tells you if you have someone with that name. the index tells you their location.
+3. can also represent, queues, or any kind of list which incorporates the idea of first in first out. this for example would not work if there was another factor that would outweigh the priority of the first element in the list.
