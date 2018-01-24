@@ -1,0 +1,3 @@
+pretty standard stuff.
+
+stacks are LIFO
