@@ -1,0 +1,11 @@
+spatial locality is a term used to describe storage location of nearby memory locations. since structures like linked list are not sequential, this storage location is referenced at a particular time. when a processor requests a piece of data not found in the Cache, it will retrieve an entire range of locations to obtain the required data to place in the Cache. Doing so Benefits performance because it reduces the amount of time the the processor interacts with the RAM a process that takes much longer than reading form the cache.
+
+2.
+(comparing 10000 item array to 10000 item linked list) the result shows that arrays are a bit slower than linked lists when it comes to creation.
+(comparing the access and removal of 5000th item in list) the results show that the linked list are slower
+
+user     system      total        real
+array     0.000000   0.000000   0.000000 (  0.004929)
+linked list  0.010000   0.000000   0.010000 (  0.002013)
+array access 5000  0.000000   0.000000   0.000000 (  0.000009)
+5000 linked list  0.000000   0.000000   0.000000 (  0.000030)
