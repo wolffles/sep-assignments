@@ -1,8 +1,9 @@
+require 'prime'
 
 class HashClass
 
-  def initialize(size=5)
-    @items = Array.new(size=5)
+  def initialize(size)
+    @items = Array.new(size)
   end
 
   def []=(key, value)
@@ -20,11 +21,13 @@ class HashClass
   end
 
   def resize
-    #ideally you'd want to find the next greater number in powers of two and find the closest greater than number.
-    #but for this example im using a static values from the checkpoint
-    next_primes = [5, 8, 16, 32, 64, 128, 256]
-    next_index = next_primes.find_index(size)+1
-    temp = Array.new(next_primes[next_index])
+    i = size
+    next_prime = false
+    until(next_prime)
+      i += 1
+      next_prime = i.prime?
+    end
+    temp = Array.new(i)
     @items.each{|ele|  temp[index(ele.key,size)] = HashItem.new(ele.key,ele.value) if ele != nil }
     @items = temp
   end
