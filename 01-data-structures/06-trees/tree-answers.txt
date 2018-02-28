@@ -1,0 +1,28 @@
+1. The difference between my binary tree and heap tree.
+  My binary tree is a reference point based data structure, the relations between parent and child is held by references in attributes. the relationships also follow a strict pattern in which the left of the tree is less than the root and the right is greater than root. the only way to find a specific node is by searching the links between each node.
+  My min heap tree is a array based data structure, it differs from the binary tree because it doesn't require storing reference points to its child, instead children are defined by a simple formula involving the index of the node in the array. the insertion doesn't require any kind of sort and the node relations only follow one rule, and that is the parent value must always be less than child value. To find any node in the tree you would have to iterate through the array.
+
+2. posted below is the output for my benchmark test as you can see my heap tree is faster, and although i've tried optimizing my binary tree code, it's still slower. that is however not how the speeds are suppose to be.
+
+                        user     system      total        real
+binary tree: insertion  0.450000   0.010000   0.460000 (  0.452919)
+Heap tree: insertion  0.030000   0.000000   0.030000 (  0.035743)
+binary tree: find array  0.250000   0.000000   0.250000 (  0.244964)
+heap tree: find array  0.070000   0.000000   0.070000 (  0.075484)
+binary tree: delete  0.200000   0.000000   0.200000 (  0.205111)
+Heap tree: delete  0.060000   0.000000   0.060000 (  0.060362)
+
+  the theoretical speed of trees vs heaps should be.
+
+          Type      BST (*)   Heap
+Insert    average   log(n)    1
+Insert    worst     log(n)    log(n)
+Find any  worst     log(n)    n
+Find max  worst     1 (**)    1
+Create    worst     n log(n)  n
+
+2AB&C. according to this theoretical table, my code is inefficient the insertion is slower, and that is true but its slower by a big margin. my binary tree's find function should be out doing the heap but because I did a Depth first search as required, its slower. and also delete should be faster as well.
+
+2D. I'd use a binary tree for every situation that would require me to manipulate data often. because data is sorted, you would be able to find data at log(n) time compared to a n time. that alone would make or break whatever your building.
+
+2E. For Heap trees, its amazing features would be its insertion time, due to it's nature of being loosely sorted. Another great feature would be finding extreme values such as min or max. although using a binary tree you could replicate a min or max with a simple attribute, the heap tree still shines when it comes to minimum or maximum values.  
