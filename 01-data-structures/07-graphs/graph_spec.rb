@@ -47,9 +47,9 @@ RSpec.describe Graph, type: Class do
   let (:eighteen) { Node.new("eighteen") }
   let (:nineteen) { Node.new("nineteen") }
 
-  let (:actors) {[a,b,c,d,e,f,g,h,i,j,kevin_bacon,l,m,n,o,p]}
+   let (:actors) {[a,b,c,d,e,f,g,h,i,j,kevin_bacon,l,m,n,o,p]}
 
-  let (:films) { [one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve,thirteen,fourteen,fifteen,sixteen] }
+   let (:films) { [one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve,thirteen,fourteen,fifteen,sixteen] }
 #insert movies to actors hash
 before do
   a.film_actor_hash['sixteen'] = sixteen
@@ -85,38 +85,38 @@ before do
   kevin_bacon.film_actor_hash['fifteen'] = fifteen
   kevin_bacon.film_actor_hash['sixteen'] = sixteen
 
-  one.film_actor_hash['kevin_bacon'] = kevin_bacon
   one.film_actor_hash['a'] = a
-  two.film_actor_hash['a'] = a
+  one.film_actor_hash['b'] = b
   two.film_actor_hash['b'] = b
-  three.film_actor_hash['b'] = b
+  two.film_actor_hash['c'] = c
   three.film_actor_hash['c'] = c
-  four.film_actor_hash['c'] = c
+  three.film_actor_hash['d'] = d
   four.film_actor_hash['d'] = d
-  five.film_actor_hash['d'] = d
+  four.film_actor_hash['e'] = e
   five.film_actor_hash['e'] = e
-  six.film_actor_hash['e'] = e
+  five.film_actor_hash['f'] = f
   six.film_actor_hash['f'] = f
-  seven.film_actor_hash['f'] = f
+  six.film_actor_hash['g'] = g
   seven.film_actor_hash['g'] = g
-  eight.film_actor_hash['g'] = g
+  seven.film_actor_hash['h'] = h
   eight.film_actor_hash['h'] = h
-  nine.film_actor_hash['h'] = h
+  eight.film_actor_hash['i'] = i
   nine.film_actor_hash['i'] = i
-  ten.film_actor_hash['i'] = i
+  nine.film_actor_hash['j'] = j
   ten.film_actor_hash['j'] = j
-  eleven.film_actor_hash['j'] = j
+  ten.film_actor_hash['l'] = l
   eleven.film_actor_hash['l'] = l
-  twelve.film_actor_hash['l'] = l
+  eleven.film_actor_hash['m'] = m
   twelve.film_actor_hash['m'] = m
-  thirteen.film_actor_hash['m'] = m
+  twelve.film_actor_hash['n'] = n
   thirteen.film_actor_hash['n'] = n
-  fourteen.film_actor_hash['n'] = n
+  thirteen.film_actor_hash['o'] = o
   fourteen.film_actor_hash['o'] = o
-  fifteen.film_actor_hash['o'] = o
+  fourteen.film_actor_hash['p'] = p
   fifteen.film_actor_hash['p'] = p
-  sixteen.film_actor_hash['p'] = p
+  fifteen.film_actor_hash['kevin_bacon'] = kevin_bacon
   sixteen.film_actor_hash['kevin_bacon'] = kevin_bacon
+  sixteen.film_actor_hash['a'] = a
 end
 
   describe "insert(node)" do
@@ -134,17 +134,43 @@ end
     end
   end
 
+  describe "find(actor_node)" do
+    it "returns the actors node" do
+      graph.actors = actors
+      graph.films = films
+      expect(graph.find(a)).to eq a
+    end
+  end
+
   describe "six_degrees_KB(actor_node)" do
+    it "tells you if it's kevin bacon" do
+      graph.actors = actors
+      graph.films = films
+      expect(graph.six_degrees_KB(kevin_bacon)).to eq "redundant question actor is kevin_bacon"
+    end
+
     it "returns the list of movies 1 degrees" do
       graph.actors = actors
       graph.films = films
       expect(graph.six_degrees_KB(a)).to eq ["sixteen"]
     end
 
-    it "returns the list of movies 2 degrees away" do
+    it "returns the list of movies 4 degrees away" do
       graph.actors = actors
       graph.films = films
-      expect(graph.six_degrees_KB(b)).to eq ["one", "sixteen"]
+      expect(graph.six_degrees_KB(d).sort).to eq ["one", "sixteen", 'two', 'three'].sort
+    end
+
+    it "returns the list of movies 6 degrees away" do
+      graph.actors = actors
+      graph.films = films
+      expect(graph.six_degrees_KB(f).sort).to eq ["one", "sixteen", 'two', 'three', 'four','five'].sort
+    end
+
+    it "more than 6 degrees" do
+      graph.actors = actors
+      graph.films = films
+      expect(graph.six_degrees_KB(h)).to eq "kevin bacon not in 6 degrees of h"
     end
   end
 end

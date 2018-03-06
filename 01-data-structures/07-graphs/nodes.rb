@@ -6,6 +6,11 @@ class Node
     self.name = name
     self.film_actor_hash = {}
   end
+
+  def inspect
+    "#<#{self.class}:0x%x #{self.name}>" % object_id
+  end
+
 end
 
 #add film : actors relation to film_actor hash
