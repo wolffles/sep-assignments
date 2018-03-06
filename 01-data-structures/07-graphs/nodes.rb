@@ -7,12 +7,9 @@ class Node
     self.film_actor_hash = {}
   end
 
+  # stops inspect from recursivly looking at the inner hash.
   def inspect
     "#<#{self.class}:0x%x #{self.name}>" % object_id
   end
 
 end
-
-#add film : actors relation to film_actor hash
-# variable_name.name = actor name
-# variable_name.film_actor_hash[film] = [list of actors]

@@ -134,11 +134,11 @@ end
     end
   end
 
-  describe "find(actor_node)" do
+  describe "find_actor(actor_node)" do
     it "returns the actors node" do
       graph.actors = actors
       graph.films = films
-      expect(graph.find(a)).to eq a
+      expect(graph.find_actor(a)).to eq a
     end
   end
 
