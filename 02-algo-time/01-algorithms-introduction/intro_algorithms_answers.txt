@@ -1,0 +1,5 @@
+intro_algorithms_answers
+
+1. calculating a restaurant tip. (arguments: percentage, total)
+  total is the sum plus the percentage of the total and itself
+end
