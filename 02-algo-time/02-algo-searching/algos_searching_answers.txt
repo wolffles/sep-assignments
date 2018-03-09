@@ -1,0 +1,20 @@
+1. In the range (a..g) it would take 8 iterations using linear search to find the value g.
+2. In the range (a..g) it would take 2 iterations using binary to find the value g.
+3. calculate fib(10), fib(11), fib(12)
+times: 0,1,2,3,4,5,6,7 ,8 ,9 ,10,11,12
+answer:0,1,1,2,3,5,8,13,21,34,55,89,144
+
+fib(10) = 55
+fib(11) = 89
+fib(12) = 144
+
+comparing the two algorithms
+  two fibs return same answer? true
+                user     system      total        real
+  iteration:  0.000000   0.000000   0.000000 (  0.000496)
+  recursion:  0.000000   0.000000   0.000000 (  0.001033)
+
+My iteration code ended up being faster than the recursion method and completes an Fibonacci sequence of n = 1000 in half the time recursion does. although at smaller numbers the difference is unnoticeable.
+
+1. With 1 million unsorted items theres no real option but to iterate through in a linear fashion. due to the fact that theres no pattern or relationship between previous and next values. also judging by the outcome of my Fibonacci benchmark tests, id use an iterator instead of recursion.
+2. If the sample was sorted the obvious choice would be to choose a binary search algorithm.
