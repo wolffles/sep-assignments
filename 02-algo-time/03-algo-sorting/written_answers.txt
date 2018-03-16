@@ -1,0 +1,12 @@
+user     system      total        real
+quick_sort:  0.360000   0.000000   0.360000 (  0.367541)
+counting_sort:  0.100000   0.000000   0.100000 (  0.099649)
+bucket_sort_hash_sort:  0.130000   0.010000   0.140000 (  0.136558)
+bucket_sort_counting:  0.100000   0.000000   0.100000 (  0.112012)
+heap_sort:  0.610000   0.010000   0.620000 (  0.622813)
+
+the assignment wanted me to create a bar chart, but I'm unsure of how I create one and submit it. Here's a benchmark.
+
+According to my tests, counting sort hands down the fastest algorithm for sorting numbers, bucket_sort's depend heavily on its inner sorting algorithm and thus process a bit slower. Quick_sort and heap_sort should be on par with each other, but my heap sort algorithm is clunky and bulky.
+
+Overall in comparison with all the times, my algorithms' speed matches the theoretical time complexities with the exception of heap sort. heap sorting should be as fast as quick sort but its near twice the time.
