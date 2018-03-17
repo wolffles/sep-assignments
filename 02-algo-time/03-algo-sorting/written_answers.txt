@@ -1,4 +1,4 @@
-user     system      total        real
+              user     system      total        real
 quick_sort:  0.360000   0.000000   0.360000 (  0.367541)
 counting_sort:  0.100000   0.000000   0.100000 (  0.099649)
 bucket_sort_hash_sort:  0.130000   0.010000   0.140000 (  0.136558)
