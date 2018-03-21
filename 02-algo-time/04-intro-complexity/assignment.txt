@@ -1,0 +1,28 @@
+1. Big O of a constant function compared to Big O that is exponential is like comparing driving to work and running to work. you can go at a constant speed driving to work. whereas, running to work is doable but the farther work is the more tired and slower one gets.
+
+2. Binary search's best case would be if the target data was the first iteration of the algorithm.
+
+3. Binary search's worst case technically would be if the data wasn't already sorted it would have to sort the data and would have to iterate through all the data one at a time, then after that do a binary search on the data.
+
+4. Binary search's bounded-case scenario or its average time would imply that the data was sorted, and it wasn't a best case scenario; the iteration would half the data size each time. so it wouldn't have to iterate through every
+
+5. Atom doesn't support graphs. but I made one :D
+
+6. Since the function is F(n) = 2^n at n = INF the limit is also 2^INF or just INF or depending on how you define a limit it doesn't exist because although numbers get exponentially large it still continues in a linear fashion until infinity and doesn't reach an asymptotic value.
+
+7. the graph is a exponential graph and the Big O is O(2^n)
+
+8.
+def function_size(n)
+  puts "Worst case of collection size n = #{n} is O(#{n})"
+end
+
+9.
+1.upto(10).each{|x| function_size(x)}
+In a linear graph such as the one we're talking about; the worst case is the target position is the last item of the collection, so that the worst case is O(n) or the size of the collection.
+
+10. Big O of binary search is O(n)
+
+11. Big theta of binary search is theta(1)
+
+12. Big omega of binary search is omega(log(n))
