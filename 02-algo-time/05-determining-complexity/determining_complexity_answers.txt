@@ -1,0 +1,115 @@
+          What's the Big-O of the following algorithms?
+
+1.  def goodbye_world(n)
+      puts "Goodbye World! #{n}"
+    end
+
+    # The big-O of this algorithm is O(1) because there is no iteration and only one operation takes place.
+
+2. def find_largest(collection)
+     largest = collection[0]
+     collection.length.times do |i|
+       if collection[i] >= largest
+         largest = collection[i]
+       end
+     end
+     largest
+    end
+
+    # This algorithm's Big-O is O(n) because the algorithm iterates through each value of a collection, and the worst case would be the size of the collection.
+
+3. def find_largest(collection)
+     largest = collection[0][0]
+     collection.length.times do |i|
+       subcollection = collection[i]
+       subcollection.length.times do |i|
+         if subcollection[i] >= largest
+           largest = subcollection[i]
+         end
+       end
+     end
+     largest
+    end
+
+    # The inner loop does continue to preform at O(n), however once the inner loop completes the iteration; the outer loop must also finish it's iteration making turning algorithm into a O(n^2). I think if the inner loop terminates the outer loop on completion the algorithm might be a O(n).
+
+4. def numbers(n)
+   if (n == 0)
+     return 0
+   elsif (n == 1)
+     return 1
+   else
+     return numbers(n-1) + numbers(n-2)
+   end
+  end
+
+  # This algorithm has no iteration or recursion, so it functions at constant time, the Big-O is O(3) or O(k) however you'd like to look at it, it has to run three comparisons each time.
+
+5. def iterative(n)
+     num1 = 0
+     num2 = 1
+
+     i = 0
+     while i < n-1
+       tmp = num1 + num2
+       num1 = num2
+       num2 = tmp
+       i+=1
+     end
+
+     num2
+    end
+
+    # With 1 iteration over a range and a few operations the Big-O is O(n+k) but when dealing with large numbers we drop the constant because in large numbers the constant doesn't make a significant difference. so O(n) will do.
+6. def sort(collection, from=0, to=nil)
+     if to == nil
+       # Sort the whole collection, by default
+       to = collection.count - 1
+     end
+
+     if from >= to
+       # Done sorting
+       return
+     end
+
+     # Take a pivot value, at the far left
+     pivot = collection[from]
+
+     # Min and Max pointers
+     min = from
+     max = to
+
+     # Current free slot
+     free = min
+
+     while min < max
+       if free == min # Evaluate collection[max]
+         if collection[max] <= pivot # Smaller than pivot, must move
+           collection[free] = collection[max]
+           min += 1
+           free = max
+         else
+           max -= 1
+         end
+       elsif free == max # Evaluate collection[min]
+         if collection[min] >= pivot # Bigger than pivot, must move
+           collection[free] = collection[min]
+           max -= 1
+           free = min
+         else
+           min += 1
+         end
+       else
+         raise "Inconsistent state"
+       end
+     end
+
+     collection[free] = pivot
+
+     sort collection, from, free - 1
+     sort collection, free + 1, to
+
+     collection
+    end
+
+    # this problem is similar to the merge sort example in the checkpoint, the while loop is between O(n) and O(n/2) because it doesn't iterate through every item in the collection, and but the recursive call brings the code down, having to iterate through the elements you've already compared means your checking values that have already been compared. My best guess is that this function equals itself out and has a O(nlog(n)) or is a O(N*K). 
