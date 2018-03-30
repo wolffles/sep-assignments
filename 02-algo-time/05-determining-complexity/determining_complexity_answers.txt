@@ -31,7 +31,7 @@
      largest
     end
 
-    # The inner loop does continue to preform at O(n), however once the inner loop completes the iteration; the outer loop must also finish it's iteration making turning algorithm into a O(n^2). I think if the inner loop terminates the outer loop on completion the algorithm might be a O(n).
+    # this algorithm takes an array of arrays and checks all values for the largest value. although it looks like an (m * n) it's actually more like (n). the outer array doesn't effect the inner array's time, so the time is actually (m + n). In the case of Big-O it's O(n)
 
 4. def numbers(n)
    if (n == 0)
@@ -43,7 +43,7 @@
    end
   end
 
-  # This algorithm has no iteration or recursion, so it functions at constant time, the Big-O is O(3) or O(k) however you'd like to look at it, it has to run three comparisons each time.
+  # depending on the input, the time complexity of this code changes. at best its a constant time the Big-O however is recursive and is O(2^n) complexity because it calls itself twice unless the input is 0 or 1
 
 5. def iterative(n)
      num1 = 0
@@ -112,4 +112,4 @@
      collection
     end
 
-    # this problem is similar to the merge sort example in the checkpoint, the while loop is between O(n) and O(n/2) because it doesn't iterate through every item in the collection, and but the recursive call brings the code down, having to iterate through the elements you've already compared means your checking values that have already been compared. My best guess is that this function equals itself out and has a O(nlog(n)) or is a O(N*K). 
+    #  If the pivot point is the smallest or the largest value it means that you're algorithm is working at n time, having a recursive call means the code is n * n. Big-O is O(n^2)
