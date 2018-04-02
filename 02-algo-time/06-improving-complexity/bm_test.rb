@@ -21,5 +21,5 @@ if poorly_written_ruby([3,6,1],[2,9,8],[5,4,7]) == sorted &&
     x.report("space"){space_written_ruby(array)}
   end
 else
-  puts "some dont function."
+  puts "some don't function properly."
 end
