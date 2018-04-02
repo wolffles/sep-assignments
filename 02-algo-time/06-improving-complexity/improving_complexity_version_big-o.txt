@@ -1,0 +1,7 @@
+unmodified: has three major iterations first by changing the data from an array of arrays to a single array size n, then iterating that n array for `val` using a nested while loop for comparison, worst case is last index (n). n + (n * n) Big-O is O(n^2)
+
+version one optimization: I did not improve the complexity of version one, just removed some redundant code and sped it up by ~30%. the Big-O is still O(n^2)
+
+version two complexity: by replacing the sorting algorithm that was Big-O(n^2) with a counting sort I've written in the past which was a Big-o(n+k). I've reduced the   Big-O. it's at O(n)
+
+version three space: by changing the data structure of the argument from a splat to a regular variable, we increase its speed by nearly 25% from version two. The Big-O is the same however O(n).
