@@ -12,7 +12,7 @@ puts "quick: #{quick_sort(ary,0,ary.size-1) == sorted}"
 puts "counting: #{counting_sort(ary) == sorted}"
 puts "bucket: #{bucket_sort(ary) == sorted}"
 puts "bucket2: #{bucket_sort2(ary) == sorted}"
-puts "heap: #{heap_sort(ary) == sorted}"
+puts "heap: #{my_heap_sort(ary) == sorted}"
 
 ary = (1..100000).to_a.shuffle
 Benchmark.bm(7) do |x|
@@ -20,5 +20,5 @@ Benchmark.bm(7) do |x|
   x.report("counting_sort:"){counting_sort(ary)}
   x.report("bucket_sort_hash_sort:"){bucket_sort(ary)}
   x.report("bucket_sort_counting:"){bucket_sort2(ary)}
-  x.report("heap_sort:"){heap_sort(ary)}
+  x.report("my_heap_sort:"){my_heap_sort(ary)}
 end
