@@ -1,4 +1,3 @@
-
 def min_bubble(array, index)
   return nil if index == 0
   parent = (index-1)/2
@@ -39,7 +38,7 @@ def heapify(array, index)
   array
 end
 
-def heap_sort(array)
+def my_heap_sort(array)
   tree = []
   until array.empty?
     tree.push(array.shift)
