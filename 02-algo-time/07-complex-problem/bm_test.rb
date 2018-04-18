@@ -11,7 +11,7 @@ p "greed: #{a}"
 p "brute: #{b}"
 p a[0] == b[0]
 
-create_map(small_map,50)
+create_map(small_map, 26) # does not go higher than 26 because the cities are only a-z
 
   Benchmark.bm(7) do |x|
     x.report("brute_tsp_test"){brute_tsp(test_map)}

@@ -3,9 +3,7 @@ require_relative 'map-data'
 # create_map(small_map, 10)
 
 def brute_tsp(map)
-  cities = map.keys # array of cities
-  # combination = cities.combination(2).to_a
-  # combination.each{|link| distance(map,link[0],link[1])}
+  cities = map.keys 
   possibilities = cities.permutation(cities.size).to_a
   outcomes = []
   shortest = nil
